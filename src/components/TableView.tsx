@@ -70,7 +70,7 @@ export const OfferTable: React.FC<Props> = ({ data }) => {
                   <Td isNumeric>
                     {row.usdPer1000Vp.toLocaleString(undefined, {
                       minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
+                      maximumFractionDigits: 4,
                     })}
                   </Td>
                 </Tr>
