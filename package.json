@@ -54,6 +54,9 @@
   "engines": {
     "node": "22.x"
   },
+  "overrides": {
+    "postcss": "^8.4.31"
+  },
   "ct3aMetadata": {
     "initVersion": "6.11.4"
   },
