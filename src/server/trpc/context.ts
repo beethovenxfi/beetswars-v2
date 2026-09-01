@@ -1,6 +1,7 @@
 import { type inferAsyncReturnType } from "@trpc/server";
 import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "pages/api/auth/[...nextauth]";
 
 /**
  * Replace this with an object if you want to pass things to createContextInner
@@ -22,7 +23,7 @@ type CreateContextOptions = Record<string, never>;
  * @link https://trpc.io/docs/context
  **/
 export const createContext = async (opts: CreateNextContextOptions) => {
-  const session = await getSession({ req: opts.req });
+  const session = await getServerSession(opts.req, opts.res, authOptions);
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   return session!;
 };
